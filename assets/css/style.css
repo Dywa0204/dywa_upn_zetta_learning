@@ -1,3 +1,19 @@
+@font-face {
+    font-family: "poppin";
+    src: url(../fonts/Poppins-Regular.ttf);
+    font-weight: normal;
+}
+@font-face {
+    font-family: "poppin";
+    src: url(../fonts/Poppins-Black.ttf);
+    font-weight: 700;
+}
+
+*{
+    font-family: "poppin", sans-serif;
+    scroll-behavior: smooth;
+}
+
 body{
     padding: 0;
     margin: 0;
@@ -7,51 +23,66 @@ h1, h2, h3, h4, h5{
     margin: 0;
 }
 
-.bg_card{
-    background-color: #03a9f4;
-    width: 100vw;
-    height: 100vh;
+header{
+    height: 64px;
+    background-color: #2E2E36;
+    color: white;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    position: sticky;
+    top: 0;
 }
 
-.card{
-    background-color: white;
-    width: 40%;
-    border-radius: 8px;
-    overflow: hidden;
+header nav{
+    display: flex;
+    gap: 16px;
 }
 
-.card_profile{
-    padding: 42px;
+header a{
+    color: white;
+    text-decoration: none;
+    transition: color .3s ease;
 }
 
-.card_profile h4{
-    background-color: #03a9f4;
-    display: block;
-    width: fit-content;
-    padding: 8px;
-    border-radius: 4px;
-    margin-bottom: 12px;
+header a:hover{
+    color: #01BC9A;
 }
 
-.card_profile p{
-    line-height: 24px;
-    text-align: justify;
-    text-justify: inter-word;
+#about{
+    background-color: #2E2E36;
+    padding: 24px 32px;
+    color: white;
+}
+
+#about h1{
+    font-size: 2.3em;
+}
+
+#contact{
+    padding: 24px 32px;
 }
 
 .social_media{
     display: flex;
     gap: 24px;
-    margin-top: 12px;
+    margin-top: 8px;
 }
 
 .social_media a{
-    text-decoration: none;
     color: white;
-    background-color: #36b2ec;
-    padding: 6px 12px;
-    border-radius: 6px;
+    text-decoration: none;
+    background-color: #01BC9A;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color .3s ease;
+}
+
+.social_media a:hover{
+    background-color: #007b64;
+}
+
+.color-s{
+    color: #01BC9A;
 }
