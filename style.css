@@ -24,8 +24,38 @@ table{
     border-collapse: collapse;
 }
 
-
-
 h1, h2, h3, h4, h5, p{
     margin: 0;
+}
+
+header{
+    height: 64px;
+    background-color: #2E2E36;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 64px;
+    position: sticky;
+    top: 0;
+    
+}
+
+header nav{
+    display: flex;
+    gap: 24px;
+}
+
+header a{
+    color: white;
+    text-decoration: none;
+    transition: color .3s ease;
+}
+
+header a:hover{
+    color: #01BC9A;
+}
+
+.active{
+    color: #01BC9A;
 }
