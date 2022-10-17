@@ -19,7 +19,14 @@ body{
     margin: 0;
 }
 
-h1, h2, h3, h4, h5{
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+
+h1, h2, h3, h4, h5, p{
     margin: 0;
 }
 
@@ -100,4 +107,33 @@ header a:hover{
 
 .color-s{
     color: #01BC9A;
+}
+
+
+#technology{
+    padding: 24px 128px;
+    text-align: center;
+}
+
+.technology{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-items: center;
+    margin-top: 12px;
+}
+
+.technology img{
+    width: 70%;
+}
+
+
+#experience{
+    padding: 24px 128px;
+    background-color: #2E2E36;
+    color: white;
+}
+
+#experience th, #experience td{
+    border: 1px solid white;
+    vertical-align: top;
 }

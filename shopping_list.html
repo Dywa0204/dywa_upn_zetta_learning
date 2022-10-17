@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List</title>
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        th, td{
+            border: 1px solid;
+            padding: 10px;
+            vertical-align: top;
+        }
+        ul{
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section style="padding: 32px;">
+            <h1 style="text-align: center;">SHOPPING LIST</h1>
+            <br>
+            <table>
+                <tr>
+                    <th>No</th>
+                    <th>Item Name</th>
+                    <th>Amount</th>
+                    <th>Price</th>
+                    <th>Variety</th>
+                    <th>Image</th>
+                </tr>
+                <tr>
+                    <td>1.</td>
+                    <td>t-shirt "Supreme"</td>
+                    <td>2</td>
+                    <td>IDR 200.000</td>
+                    <td>
+                        <b>Size :</b>
+                        <ul>
+                            <li>M : 1</li>
+                            <li>L : 1</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <img src="./assets/images/t-shirt.jpg" alt="t-shirt" width="100px">
+                    </td>
+                </tr>
+                <tr>
+                    <td>2.</td>
+                    <td>Chiki Balls</td>
+                    <td>4</td>
+                    <td>IDR 12.000</td>
+                    <td>
+                        <b>Flavour :</b>
+                        <ul>
+                            <li>Chocolate : 3</li>
+                            <li>Cheese : 1</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <img src="./assets/images/chiki.jpg" alt="Chiki" width="100px">
+                    </td>
+                </tr>
+                <tr>
+                    <td>3.</td>
+                    <td>Mouse Fantech Thor II x16</td>
+                    <td>1</td>
+                    <td>IDR 135.000</td>
+                    <td>
+                        <b>-</b>
+                    </td>
+                    <td>
+                        <img src="./assets/images/mouse.jpg" alt="Mouse" width="100px">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5" style="text-align: right;"><b>Total</b></td>
+                    <td id="total"></td>
+                </tr>
+            </table>
+        </section>
+    </main>
+
+    <script src="./script.js"></script>
+</body>
+</html>
