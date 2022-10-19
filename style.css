@@ -54,6 +54,12 @@ body{
     align-items: center;
     text-align: center;
     border: 3px solid #22646d;
+    cursor: pointer;
+    transition: transform .3s ease;
+}
+
+.card:hover{
+    transform: scale(1.02);
 }
 
 .card > h2{
