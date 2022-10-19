@@ -1,4 +1,76 @@
+@font-face {
+    font-family: "poppin";
+    src: url(./assets/fonts/Poppins-Regular.ttf);
+    font-weight: normal;
+}
+@font-face {
+    font-family: "poppin";
+    src: url(./assets/fonts/Poppins-Black.ttf);
+    font-weight: 700;
+}
+
+*{
+    font-family: "poppin", sans-serif;
+    scroll-behavior: smooth;
+    color: #1e1e1e;
+    font-size: 16px;
+}
+
+h1{
+    font-size: 2em;
+    margin: 4px;
+}
+
+p{
+    margin: 4px;
+    line-height: 20px;
+}
+
 body{
     margin: 0;
     padding: 0;
+    background-color: #6fd8e5;
+}
+
+.info_container{
+    text-align: center;
+    padding: 32px;
+}
+
+.card_container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 32px;
+    padding-top: 0;
+    gap: 32px;
+}
+
+.card{
+    background-color: white;
+    padding: 32px 24px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 3px solid #22646d;
+}
+
+.card > h2{
+    margin: 4px;
+    font-size: 1.5em;
+}
+
+.image_container{
+    width: 80%;
+    height: 150px;
+    max-height: 150px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image_container img{
+    width: 100%;
 }
