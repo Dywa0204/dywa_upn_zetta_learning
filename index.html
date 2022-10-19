@@ -4,16 +4,121 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CSS DAY 1 : MERGED</title>
+    <style>
+        body{
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            padding: 32px;
+            gap: 32px;
+        }
+        table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td{
+            border: 1px solid black;
+            padding: 8px;
+        }
+
+        th{
+            color: white;
+        }
+
+        #hobby th{
+            background-color: green;
+        }
+
+        #movies th{
+            background-color: red;
+        }
+
+        #song th{
+            background-color: blue;
+        }
+
+        @media screen and (max-width: 992px) {
+            body{
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            body{
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>INI TEMPLATE</h1>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
-        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
-        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt 
-        in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
+    <table id="hobby">
+        <tr>
+            <th colspan="2">My Hobby</th>
+        </tr>
+        <tr>
+            <th width="10%">No</th>
+            <th>Hobby</th>
+        </tr>
+        <tr>
+            <td>1. </td>
+            <td>Hobby 1</td>
+        </tr>
+        <tr>
+            <td>2. </td>
+            <td>Hobby 2</td>
+        </tr>
+
+        <tr>
+            <td>3. </td>
+            <td>Hobby 3</td>
+        </tr>
+    </table>
+
+    <table id="movies">
+        <tr>
+            <th colspan="2">My Fav Movies</th>
+        </tr>
+        <tr>
+            <th width="10%">No</th>
+            <th>Movies</th>
+        </tr>
+        <tr>
+            <td>1. </td>
+            <td>Movies 1</td>
+        </tr>
+        <tr>
+            <td>2. </td>
+            <td>Movies 2</td>
+        </tr>
+
+        <tr>
+            <td>3. </td>
+            <td>Movies 3</td>
+        </tr>
+    </table>
+
+    <table id="song">
+        <tr>
+            <th colspan="2">My Fav Song</th>
+        </tr>
+        <tr>
+            <th width="10%">No</th>
+            <th>Song</th>
+        </tr>
+        <tr>
+            <td>1. </td>
+            <td>Song 1</td>
+        </tr>
+        <tr>
+            <td>2. </td>
+            <td>Song 2</td>
+        </tr>
+
+        <tr>
+            <td>3. </td>
+            <td>Song 3</td>
+        </tr>
+    </table>
 </body>
 </html>
