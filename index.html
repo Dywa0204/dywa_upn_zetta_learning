@@ -4,16 +4,122 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Profile</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1>INI TEMPLATE</h1>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
-        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-        nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit 
-        esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt 
-        in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
+    <header>
+        <div class="logo"><a href="."><h2>MY PROFILE</h2></a></div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <section id="about">
+            <div class="image">
+                <img src="./assets/images/photo.png" alt="" width="100%">
+            </div>
+            <div class="profiles">
+                <span>Welcome To<br>My Personal Website</span>
+                <h1><span class="color-s">HELLO</span> MY NAME IS DYWA</h1>
+                <p>
+                    <span class="bigger">I am 21 years old.</span>
+                    <span>I'm from Gunungkidul.</span>
+                    <span>I am a graduate of SMK majoring in Network and Computer Engineering.</span>
+                    <span>My hobbies are coding, graphic design, watching movies, and I also like new and challenging things</span>
+                </p>
+                <br>
+                <p>
+                    <span class="bigger">For now I am a student majoring in informatics UPN "Veteran" Yogyakarta.</span>
+                    <span>My daily life as a student is studying. </span>
+                    <span>Beside that, I also serve as a laboratoty assistant &amp; joining Robotic Club. </span>
+                    <span>Outside of lectures I work part time as an Programmer at PT. Farma Global Technology. </span>
+                    <span>I did all that as my axperience, because for me <em>experience is the best teacher</em>.</span>
+                </p>
+            </div>
+        </section>
+        <section id="technology">
+            <h2>Used Technology</h2>
+            <div class="technology">
+                <img src="./assets/images/php.svg" alt="PHP">
+                <img src="./assets/images/laravel.svg" alt="Laravel">
+                <img src="./assets/images/python.svg" alt="Phyton">
+                <img src="./assets/images/mysql.svg" alt="MySQL">
+                <img src="./assets/images/nodejs.svg" alt="NodeJS">
+                <img src="./assets/images/reactjs.svg" alt="ReactJS">
+            </div>
+        </section>
+        <section id="experience">
+            <h2 style="text-align: center;">Resume</h2>
+            <br>
+            <table>
+                <tr>
+                    <th width="50%">Achievement</th>
+                    <th>Experience</th>
+                </tr>
+                <tr>
+                    <td>
+                        <ul>
+                            <li>
+                                <h4>IT-Venture XII Contest Finalist</h4>
+                                <p>Pekan Informasi dan Teknologi (PING)</p>
+                                <p>National Level, 2019</p><br>
+                            </li>
+                            <li>
+                                <h4>Graphic Design Technology (GDT) Contest Participants</h4>
+                                <p>Lomba Kreatifitas Siswa (LKS)</p>
+                                <p>Provincial Level, 2019</p><br>
+                            </li>
+                            <li>
+                                <h4>3rd Place in Simurosot Robot Contest</h4>
+                                <p>PORSIMNAS WIMAYA, “Robotic Contest” Competition Branch</p>
+                                <p>National Level, 2022</p><br>
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>
+                                <h4>Web Developer and Website Designer clovedia.id</h4>
+                                <p>2021</p><br>
+                            </li>
+                            <li>
+                                <h4>Laboratory Assistant Department of Informatics</h4>
+                                <p>Academic Years 2021/2022 and 2022/2023</p><br>
+                            </li>
+                            <li>
+                                <h4>Programmer Internship at PT. Farma Global Technology</h4>
+                                <p>July 2022 - Now</p><br>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+            <br>
+        </section>
+        <section id="contact">
+            <div>
+                <h2>Find Me</h2>
+                <div class="social_media">
+                    <a href="https://facebook.com/profile.php?id=100007968792138">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/2048px-Facebook_f_logo_%282019%29.svg.png" alt="">
+                        <span>Facebook</span>
+                    </a>
+                    <a href="https://twitter.com/dywa_pratama">
+                        <img src="https://cdn4.iconfinder.com/data/icons/social-media-icons-the-circle-set/48/twitter_circle-512.png" alt="">
+                        <span>Twitter</span>
+                    </a>
+                    <a href="https://linkedin.com/in/dywapratama">
+                        <img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="">
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+            <div class="contact_img">
+                <img src="./assets/images/contact_us.jpg" alt="" width="25%">
+            </div>
+        </section>
+    </main>
 </body>
 </html>

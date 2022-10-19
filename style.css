@@ -1,4 +1,143 @@
+@font-face {
+    font-family: "poppin";
+    src: url(./assets/fonts/Poppins-Regular.ttf);
+    font-weight: normal;
+}
+@font-face {
+    font-family: "poppin";
+    src: url(./assets/fonts/Poppins-Black.ttf);
+    font-weight: 700;
+}
+
+*{
+    font-family: "poppin", sans-serif;
+    scroll-behavior: smooth;
+}
+
 body{
-    margin: 0;
     padding: 0;
+    margin: 0;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+
+h1, h2, h3, h4, h5, p{
+    margin: 0;
+}
+
+header{
+    height: 64px;
+    background-color: #2E2E36;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 128px;
+    position: sticky;
+    top: 0;
+    
+}
+
+header nav{
+    display: flex;
+    gap: 16px;
+}
+
+header a{
+    color: white;
+    text-decoration: none;
+    transition: color .3s ease;
+}
+
+header a:hover{
+    color: #01BC9A;
+}
+
+#about{
+    background-color: #2E2E36;
+    padding: 24px 128px;
+    color: white;
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+
+.profiles{
+    margin-left: 32px;
+}
+
+.bigger{
+    font-size: 20px;
+}
+
+#about h1{
+    font-size: 2.3em;
+}
+
+#contact{
+    padding: 24px 128px;
+    display: flex;
+}
+
+.social_media{
+    display: flex;
+    gap: 24px;
+    margin-top: 8px;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.social_media a{
+    color: black;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.social_media img{
+    width: 24px;
+    height: 24px;
+}
+
+.contact_img{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.color-s{
+    color: #01BC9A;
+}
+
+
+#technology{
+    padding: 24px 128px;
+    text-align: center;
+}
+
+.technology{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    justify-items: center;
+    margin-top: 12px;
+}
+
+.technology img{
+    width: 70%;
+}
+
+
+#experience{
+    padding: 24px 128px;
+    background-color: #2E2E36;
+    color: white;
+}
+
+#experience th, #experience td{
+    border: 1px solid white;
+    vertical-align: top;
 }
