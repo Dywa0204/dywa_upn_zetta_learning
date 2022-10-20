@@ -80,3 +80,15 @@ body{
 .image_container img{
     width: 100%;
 }
+
+@media screen and (max-width: 992px) {
+    .card_container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .card_container{
+        grid-template-columns: 1fr;
+    }
+}
