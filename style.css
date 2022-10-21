@@ -37,10 +37,11 @@ header{
     grid-template-columns: repeat(3, 1fr);
     padding: 0 64px;
     justify-items: center;
+    gap: 0 32px;
 }
 
 .card{
-    width: 80%;
+    width: 100%;
     background-color: white;
     display: grid;
     grid-template-columns: .3fr .7fr;
@@ -99,4 +100,20 @@ img{
     border-radius: 8px;
     display: block;
     width: fit-content;
+}
+
+footer{
+    background-color: #1e1e1e;
+    padding: 32px 64px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+footer a{
+    color: white;
+    text-decoration: none;
+    background-color: #ff8400;
+    padding: 4px 8px;
+    border-radius: 4px;
 }
