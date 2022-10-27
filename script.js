@@ -25,6 +25,8 @@ const book = [
 function bookPurchasing(book, discount, tax) {
     let total = 0;
 
+    console.log("***** LIST OF BOOK *****");
+
     for(let i = 0; i < book.length; i++){
         if(book[i].isAvailable){
             const amountOfDiscount = book[i].price * (discount / 100);
@@ -50,6 +52,35 @@ function bookPurchasing(book, discount, tax) {
     console.log("=================================\n")
     console.log("Amount of Book : " + book.length);
     console.log("Total Price    : Rp " + total);
+
+    return total;
 }
 
-bookPurchasing(book, 10, 10);
+function credit(total, duration, tax){
+    let term = [];
+    let totalcredit = 0;
+
+    console.log("\n\n***** CREDITS *****")
+
+    const price = total /duration;
+    const taxprice = price * (tax / 100);
+    const creditprice = price + taxprice;
+
+    for(let i = 0; i < duration; i++){
+        term.push({
+            month: i + 1,
+            payment: creditprice
+        });
+        totalcredit += creditprice;
+    }
+
+    term.forEach(item => {
+        console.log("Month " + item.month + " : Rp " + item.payment);
+    });
+
+    console.log("\n=================================\n")
+    console.log("Amount Month : " + term.length);
+    console.log("Total Credit : Rp " + totalcredit);
+}
+
+credit(bookPurchasing(book, 10, 10), 9, 10);
