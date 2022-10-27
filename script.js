@@ -7,27 +7,49 @@ const book = [
         title: "Book Two", 
         price: 70000, 
         isAvailable: false
+    }, {
+        title: "Book Three", 
+        price: 58000, 
+        isAvailable: true
+    }, {
+        title: "Book Four", 
+        price: 68000, 
+        isAvailable: true
+    }, {
+        title: "Book Five", 
+        price: 86000, 
+        isAvailable: false
     }
 ];
 
 function bookPurchasing(book, discount, tax) {
-    const amountOfDiscount = book.price * (discount / 100);
-    const priceAfterDiscount = book.price - amountOfDiscount;
-    const amountOfTax =  priceAfterDiscount * (tax / 100);
-    const priceAfterTax = priceAfterDiscount + amountOfTax;
+    let total = 0;
 
-    if(book.isAvailable){
-        console.log("Book Title : " + book.title);
-        console.log("Book Price : " + book.price);
-        console.log("Amount of discount : " + amountOfDiscount);
-        console.log("Price after discount : " + priceAfterDiscount);
-        console.log("Amount of tax : " + amountOfTax);
-        console.log("Price after tax : " + priceAfterTax + "\n");
-    }else{
-        console.log("Book Title : " + book.title + " (Not Available)");
-        console.log("Book Price : " + book.price);
+    for(let i = 0; i < book.length; i++){
+        if(book[i].isAvailable){
+            const amountOfDiscount = book[i].price * (discount / 100);
+            const priceAfterDiscount = book[i].price - amountOfDiscount;
+            const amountOfTax =  priceAfterDiscount * (tax / 100);
+            const priceAfterTax = priceAfterDiscount + amountOfTax;
+
+            console.log("Book " + (i+1));
+            console.log("  Book Title : " + book[i].title);
+            console.log("  Book Price : Rp " + book[i].price);
+            console.log("  Amount of discount   : Rp " + amountOfDiscount);
+            console.log("  Price after discount : Rp " + priceAfterDiscount);
+            console.log("  Amount of tax        : Rp " + amountOfTax);
+            console.log("  Price after tax      : Rp " + priceAfterTax + "\n");
+            total += priceAfterTax;
+        }else{
+            console.log("Book " + (i+1));
+            console.log("  Book Title : " + book[i].title + " (Not Available)");
+            console.log("  Book Price : Rp " + book[i].price + "\n");
+        }
     }
+
+    console.log("=================================\n")
+    console.log("Amount of Book : " + book.length);
+    console.log("Total Price    : Rp " + total);
 }
 
-bookPurchasing(book[0], 10, 10);
-bookPurchasing(book[1], 5, 5);
+bookPurchasing(book, 10, 10);
