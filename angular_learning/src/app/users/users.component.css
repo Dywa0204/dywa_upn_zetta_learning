@@ -1,0 +1,96 @@
+h1{
+    text-align: center;
+}
+
+.users{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    padding: 16px 64px;
+}
+
+.users-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.users-header button{
+    border: none;
+    cursor: pointer;
+    background-color: #539b40;
+    padding: 8px 16px;
+    display: block;
+    width: fit-content;
+    height: fit-content;
+    font-size: 1.1em;
+    border-radius: 4px;
+    transition: background-color .3s ease;
+    color: white;
+}
+
+.users-header button:hover{
+    background-color: #28521c;
+}
+
+.users-modal{
+    background-color: #000000df;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.close{
+    display: none;
+}
+
+.open{
+    display: flex;
+}
+
+.users-modal-card{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 32px;
+    width: 50%;
+    border-radius: 8px;
+}
+
+.users-modal-card input{
+    padding: 8px 16px;
+    margin-bottom: 12px;
+}
+
+.modal-buttons{
+    display: flex;
+    gap: 12px;
+}
+
+#button-submit{
+    background-color: rgb(98, 206, 119);
+}
+#button-cancel{
+    background-color: rgb(220, 111, 111);
+}
+
+.users-modal-card button{
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    width: fit-content;
+}
+
+.user-list{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 24px;
+    gap: 24px;
+}

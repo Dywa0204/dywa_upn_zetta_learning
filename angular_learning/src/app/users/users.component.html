@@ -1,0 +1,41 @@
+<h1>MY WEBSITE USER LIST</h1>
+<div class="users">
+    <div [ngClass]="modalClass">
+        <div class="users-modal-card">
+            <label>Fullname</label>
+            <input type="text" [(ngModel)]="fullname" placeholder="What is your name?">
+            <label>Email</label>
+            <input type="email" [(ngModel)]="email" placeholder="What is your email?">
+            <label>Avatar</label>
+            <div class="avatars">
+                <input type="radio" name="avatar" [(ngModel)]="avatar" value="0" [checked]="isChecked[0]">
+                <input type="radio" name="avatar" [(ngModel)]="avatar" value="1" [checked]="isChecked[1]">
+                <input type="radio" name="avatar" [(ngModel)]="avatar" value="2" [checked]="isChecked[2]">
+                <input type="radio" name="avatar" [(ngModel)]="avatar" value="3" [checked]="isChecked[3]">
+                <div class="avatar-img" (click)="chooseAvatar(0)">
+                    <img src="" alt="">
+                </div>
+                <div class="avatar-img" (click)="chooseAvatar(1)">
+                    <img src="" alt="">
+                </div>
+                <div class="avatar-img" (click)="chooseAvatar(2)">
+                    <img src="" alt="">
+                </div>
+                <div class="avatar-img" (click)="chooseAvatar(3)">
+                    <img src="" alt="">
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button (click)="addNewUser()" id="button-submit">Submit</button>
+                <button (click)="onAddUser('close')" id="button-cancel">cancel</button>
+            </div>
+        </div>
+    </div>
+    <div class="users-header">
+        <button (click)="onAddUser('open')">Add New User</button>
+        <h4>Users Total : {{ users.length }}</h4>
+    </div>
+    <div class="user-list">
+        <app-user *ngFor="let user of users" [user]="user"></app-user>
+    </div>
+</div>
