@@ -29,3 +29,9 @@ h1{
     outline: none;
     cursor: pointer;
 }
+
+.todo-output{
+    height: 80vh;
+    max-height: 80vh;
+    overflow-y: scroll;
+}
