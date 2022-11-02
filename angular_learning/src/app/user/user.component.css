@@ -5,6 +5,7 @@
     border-radius: 4px;
     transition: transform .3s ease;
     cursor: pointer;
+    padding: 16px;
 }
 
 .the-user:hover{
@@ -23,4 +24,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+}
+
+.user-avatar img{
+    width: 100%;
 }

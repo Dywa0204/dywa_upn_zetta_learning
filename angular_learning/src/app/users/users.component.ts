@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Users } from '../model/user.model';
+import { Users, AvatarLinks } from '../model/user.model';
 
 @Component({
   selector: 'app-users',
@@ -11,10 +11,17 @@ export class UsersComponent implements OnInit {
   fullname = '';
   email = '';
   avatar = 0;
+
   users = Users;
-  isChecked = [false, false, false, false];
+  avatarLinks = AvatarLinks;
 
   modalClass = 'users-modal close';
+  avatarClass = [
+    'avatar-img selected',
+    'avatar-img',
+    'avatar-img',
+    'avatar-img'
+  ];
 
   constructor() {
     
@@ -41,9 +48,14 @@ export class UsersComponent implements OnInit {
   }
 
   chooseAvatar(num: number){
+    this.avatar = num;
     for(let i = 0; i < 4; i++){
-      if(i == num) this.isChecked[i] = true;
-      else this.isChecked[i] = false;
+      if(i == num){
+        this.avatarClass[i] = 'avatar-img selected';
+      } 
+      else{
+        this.avatarClass[i] = 'avatar-img';
+      } 
     }
   }
 }

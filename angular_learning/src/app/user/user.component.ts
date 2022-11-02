@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { User } from '../model/user.model';
+import { User, AvatarLinks } from '../model/user.model';
 
 @Component({
   selector: 'app-user',
@@ -7,6 +7,8 @@ import { User } from '../model/user.model';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+
+  avatarLinks = AvatarLinks;
 
   @Input() user: User = new User;
 

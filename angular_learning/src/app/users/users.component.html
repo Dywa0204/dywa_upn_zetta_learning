@@ -2,27 +2,24 @@
 <div class="users">
     <div [ngClass]="modalClass">
         <div class="users-modal-card">
+            <h3>ADD NEW USER</h3>
             <label>Fullname</label>
             <input type="text" [(ngModel)]="fullname" placeholder="What is your name?">
             <label>Email</label>
             <input type="email" [(ngModel)]="email" placeholder="What is your email?">
             <label>Avatar</label>
             <div class="avatars">
-                <input type="radio" name="avatar" [(ngModel)]="avatar" value="0" [checked]="isChecked[0]">
-                <input type="radio" name="avatar" [(ngModel)]="avatar" value="1" [checked]="isChecked[1]">
-                <input type="radio" name="avatar" [(ngModel)]="avatar" value="2" [checked]="isChecked[2]">
-                <input type="radio" name="avatar" [(ngModel)]="avatar" value="3" [checked]="isChecked[3]">
-                <div class="avatar-img" (click)="chooseAvatar(0)">
-                    <img src="" alt="">
+                <div [ngClass]="avatarClass[0]" (click)="chooseAvatar(0)">
+                    <img [src]="avatarLinks[0]"/>
                 </div>
-                <div class="avatar-img" (click)="chooseAvatar(1)">
-                    <img src="" alt="">
+                <div [ngClass]="avatarClass[1]" (click)="chooseAvatar(1)">
+                    <img [src]="avatarLinks[1]"/>
                 </div>
-                <div class="avatar-img" (click)="chooseAvatar(2)">
-                    <img src="" alt="">
+                <div [ngClass]="avatarClass[2]" (click)="chooseAvatar(2)">
+                    <img [src]="avatarLinks[2]"/>
                 </div>
-                <div class="avatar-img" (click)="chooseAvatar(3)">
-                    <img src="" alt="">
+                <div [ngClass]="avatarClass[3]" (click)="chooseAvatar(3)">
+                    <img [src]="avatarLinks[3]"/>
                 </div>
             </div>
             <div class="modal-buttons">
