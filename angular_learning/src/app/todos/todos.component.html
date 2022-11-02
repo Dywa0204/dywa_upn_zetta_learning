@@ -1,0 +1,16 @@
+<h1>TO DO</h1>
+<div class="todos">
+    <div class="todo-inputs">
+        <label>To Do</label>
+        <input type="text" [(ngModel)]="theTodo">
+        <label>Description</label>
+        <input type="text" [(ngModel)]="todoDesc">
+        <button (click)="onAddTodo()">Add New To Do</button>
+    </div>
+    <div class="todo-output">
+        <h4>To Do Total : {{todos.length}}</h4>
+        <app-todo *ngFor="let todo of todos" [todo]="todo"></app-todo>
+    </div>
+</div>
+
+

@@ -1,0 +1,11 @@
+.todo{
+    padding: 8px 16px;
+    background-color: #85c0ea;
+    margin-bottom: 12px;
+    border-radius: 4px;
+    margin-right: 32px;
+}
+
+.todo p{
+    margin: 0;
+}

@@ -1,0 +1,15 @@
+<h1></h1>
+<input
+  type="text"
+  [(ngModel)]="teacherName">
+
+<button
+    (click)="onAddTeacher()"
+>Add Teacher</button>
+
+<h2>{{principle}} controls {{teachers.length}} teachers</h2>
+<app-student 
+    *ngFor="let teacher of teachers"
+    [teacher]="teacher"
+    [principle]="principle"
+></app-student>
