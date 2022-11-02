@@ -2,14 +2,16 @@
 <div class="todos">
     <div class="todo-inputs">
         <label>To Do</label>
-        <input type="text" [(ngModel)]="theTodo">
+        <input type="text" [(ngModel)]="theTodo" placeholder="What is your plan?">
         <label>Description</label>
-        <input type="text" [(ngModel)]="todoDesc">
+        <textarea [(ngModel)]="todoDesc" placeholder="Just describe your plan" rows="10"></textarea>
         <button (click)="onAddTodo()">Add New To Do</button>
     </div>
     <div class="todo-output">
         <h4>To Do Total : {{todos.length}}</h4>
-        <app-todo *ngFor="let todo of todos" [todo]="todo"></app-todo>
+        <div class="todo-list">
+            <app-todo *ngFor="let todo of todos" [todo]="todo"></app-todo>
+        </div>
     </div>
 </div>
 

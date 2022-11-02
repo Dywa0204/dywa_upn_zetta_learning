@@ -18,11 +18,10 @@ export class TodosComponent implements OnInit {
   }
 
   onAddTodo(){
-    this.todos.push({todo : this.theTodo, desc: this.todoDesc});
+    if(this.theTodo !== '' && this.todoDesc !== ''){
+      this.todos.push({todo : this.theTodo, desc: this.todoDesc});
+    }else{
+      alert("Field Cannot Blank");
+    }
   }
-
-  /* onUpdateTodo(event: Event) {
-    this.theTodo = (<HTMLInputElement>event.target).value;
-  } */
-
 }
