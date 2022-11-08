@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="loading" *ngIf="isLoading">Please Wait...</div>
+    <div class="content" *ngIf="!isLoading">
+        <app-bom-counter *ngIf="isBomStarted" (onDone)="toggleInput($event)"></app-bom-counter>
+        <br>
+        <button *ngIf="!isBomStarted" (click)="toggleBomStart()">Just Click This</button>
+        <div class="input_name" *ngIf="isDone">
+            <br><br>
+            <input #name type="text" placeholder="Your Name Here">
+            <button (click)="submitName(name.value)">Submit</button>
+        </div>
+    </div>
+</div>

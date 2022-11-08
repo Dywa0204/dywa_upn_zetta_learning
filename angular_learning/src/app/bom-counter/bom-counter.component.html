@@ -1,0 +1,15 @@
+<div class="bom_counter">
+    <h1 [ngClass]="titleClass">{{ titleText }}</h1>
+    <br>
+    <h4>Choose {{ totalButtons/2 }} of the {{ totalButtons }} buttons below. If your choice is correct then the bomb will be deactivated</h4>
+    <br>
+    <br>
+    <h3 class="counter">Your Time Left : {{ timeCounter }} seconds</h3>
+    <br>
+    <br>
+    <div class="bom_buttons">
+        <ng-template ngFor let-button let-i="index" [ngForOf]="buttons">
+            <button (click)="onButtonBombToggle(button, $event)" [disabled]="isButtonDisabled">{{ i+1 }}</button>
+        </ng-template>
+    </div>
+</div>
