@@ -1,22 +1,24 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Card } from '../model/card.model';
 
+import { CardService } from './services/card.service';
+
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css']
+  styleUrls: ['./card.component.css'],
+  providers: [CardService]
 })
 export class CardComponent implements OnInit {
 
   @Input() card : Card = new Card;
-  @Output() onCardOpen = new EventEmitter<number>();
 
-  constructor() { }
+  constructor(private cardService : CardService) { }
 
   ngOnInit(): void {
   }
 
   onCardClick(id: number){
-    this.onCardOpen.emit(id - 1)
+    this.cardService.openOneCard(id - 1)
   }
 }

@@ -20,4 +20,4 @@ const getCards = () => {
     return temp;
 }
 
-export const Cards = getCards();
+export let Cards = getCards();

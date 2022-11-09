@@ -1,18 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { Cards } from '../model/card.model';
 
+import { CardService } from '../card/services/card.service';
+
 @Component({
   selector: 'app-card-list',
   templateUrl: './card-list.component.html',
-  styleUrls: ['./card-list.component.css']
+  styleUrls: ['./card-list.component.css'],
+  providers: [CardService]
 })
 export class CardListComponent implements OnInit {
 
-  cards = Cards;
+  cards: any = [];
   isAllCardOpen  = false;
   buttonText = "Open"
 
-  constructor() { }
+  constructor(private cardService: CardService) { 
+    this.cards = cardService.cards
+  }
 
   ngOnInit(): void {
     console.log(this.cards)
@@ -20,12 +25,7 @@ export class CardListComponent implements OnInit {
 
   addNewCard(){
     const lastCard = this.cards.length + 1;
-    this.cards.push({
-      id: lastCard,
-      isOpen: false,
-      title: "Card " + lastCard,
-      desc: "This Is Card " + lastCard
-    })
+    this.cardService.addNewCard(lastCard)
   }
 
   openAllCard(){
@@ -34,12 +34,6 @@ export class CardListComponent implements OnInit {
     if(this.isAllCardOpen) this.buttonText = "Close";
     else this.buttonText = "Open"
 
-    this.cards.forEach(item => {
-      item.isOpen = this.isAllCardOpen;
-    })
-  }
-
-  onCardOpen(id: number){
-    this.cards[id].isOpen = !this.cards[id].isOpen;
+    this.cardService.openAllCard(this.isAllCardOpen)
   }
 }
