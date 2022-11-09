@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cards } from '../model/card.model';
 
-import { CardService } from '../card/services/card.service';
+import { CardService } from '../services/card.service';
 
 @Component({
   selector: 'app-card-list',
@@ -20,7 +20,8 @@ export class CardListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.cards)
+    this.isAllCardOpen = false
+    this.cardService.openAllCard(false)
   }
 
   addNewCard(){

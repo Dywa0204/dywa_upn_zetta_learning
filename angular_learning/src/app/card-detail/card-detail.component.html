@@ -1,0 +1,18 @@
+<div class="header">
+    <a routerLink="/" mat-raised-button color="primary">Back</a>
+</div>
+<div class="card_detail">
+    <mat-card>
+        <div *ngIf="isCardAvailable">
+            <mat-card-title>{{ card.title }}</mat-card-title>
+            <mat-card-subtitle>{{ card.subtitle }}</mat-card-subtitle>
+            <mat-card-content>{{ card.desc }}</mat-card-content>
+            <mat-card-content>Random Number : {{ card.random }}</mat-card-content>
+        </div>
+        <div *ngIf="!isCardAvailable">
+            <mat-card-title>Nothing to Display</mat-card-title>
+        </div>
+    </mat-card>
+</div>
+
+

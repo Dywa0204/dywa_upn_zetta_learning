@@ -1,6 +1,12 @@
 <mat-card (click)="onCardClick(card.id)">
-    <mat-card-title *ngIf="card.isOpen">{{ card.title }}</mat-card-title>
-    <mat-card-subtitle *ngIf="card.isOpen">{{ card.desc }}</mat-card-subtitle>
-    <mat-card-title *ngIf="!card.isOpen">&nbsp;</mat-card-title>
-    <mat-card-subtitle *ngIf="!card.isOpen">&nbsp;</mat-card-subtitle>
+    <div *ngIf="card.isOpen">
+        <mat-card-title>{{ card.title }}</mat-card-title>
+        <mat-card-subtitle>{{ card.subtitle }}</mat-card-subtitle>
+        <a [routerLink]="['/detail', card.id]" mat-raised-button color="primary">Click Button For Detail</a>
+    </div>
+    <div *ngIf="!card.isOpen">
+        <mat-card-title>&nbsp;</mat-card-title>
+        <mat-card-subtitle>&nbsp;</mat-card-subtitle>
+        <button mat-raised-button color="primary" style="visibility: hidden">&nbsp;</button>
+    </div>
 </mat-card>
