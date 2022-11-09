@@ -1,0 +1,48 @@
+mat-selection-list{
+    background-color: #ffffff10;
+    height: 70vh;
+    margin: 32px 24px;
+    padding: 16px;
+    overflow-y: scroll;
+}
+
+h2, h1{
+    margin: 0;
+    text-align: center;
+    color: white;
+    padding-top: 32px;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: .4fr .6fr;
+    gap: 12px;
+}
+
+mat-list-option{
+    background-color: #ffffff12;
+    margin: 6px 0;
+}
+
+.user-detail{
+    background-color: #ffffff10;
+    margin: 32px 24px;
+    border-right: 8px #ffffff1c solid;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 32px;
+}
+
+mat-selection-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+mat-selection-list::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #ffffff1c;
+}
+
+mat-selection-list::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #ffffff2d;
+}

@@ -1,0 +1,11 @@
+<h1>USER MANAGEMENT</h1>
+<div class="container">
+    <mat-selection-list [multiple]="false">
+        <a mat-flat-button color="primary" routerLink="/form" [queryParams]="{isEdit: false}">Add New User</a>
+        <mat-list-option *ngFor="let user of users" (click)="userSelected(user)">{{ user.name }}</mat-list-option>
+    </mat-selection-list>
+    <div class="user-detail">
+        <app-user-detail *ngIf="isUserSelected" [user]="selecteduser"></app-user-detail>
+        <h2 *ngIf="!isUserSelected">Select user to display user detail</h2>
+    </div>
+</div>

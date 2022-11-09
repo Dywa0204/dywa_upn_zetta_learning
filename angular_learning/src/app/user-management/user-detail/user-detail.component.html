@@ -1,0 +1,45 @@
+<div class="user-detail">
+    <div class="user-detail-info">
+        <p>Id Number : {{ user.idNumber }}</p>
+        <h1>{{ user.name }}</h1>
+        <h2 class="age">{{ user.age }} years old</h2>
+
+        <table>
+            <tr>
+                <td width="16px">
+                    <mat-icon *ngIf="user.gender == 'female'" aria-hidden="false" aria-label="Example home icon" fontIcon="female"></mat-icon>
+                    <mat-icon *ngIf="user.gender == 'male'" aria-hidden="false" aria-label="Example home icon" fontIcon="male"></mat-icon>
+                </td>
+                <td width="30%">{{ user.gender }}</td>
+                <td width="16px">
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon>
+                </td>
+                <td>{{ user.position }}</td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="email"></mat-icon>
+                </td>
+                <td>{{ user.email }}</td>
+                <td>
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="favorite"></mat-icon>
+                </td>
+                <td>{{ user.marital }}</td>
+            </tr>
+            <tr>
+                <td>
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="place"></mat-icon>
+                </td>
+                <td colspan="3">
+                    {{ user.addresess.address }}, {{ user.addresess.city }}, {{ user.addresess.country }}. {{ user.addresess.zipCode }}
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="user-detail-button">
+        <a mat-flat-button color="primary" routerLink="/form" [queryParams]="{uid: user.idNumber}">Edit User</a>
+    </div>
+</div>
+
+

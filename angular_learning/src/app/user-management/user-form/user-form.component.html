@@ -1,0 +1,72 @@
+<form #itemForm="ngForm" (ngSubmit)="onSubmit(itemForm)">
+    <h1>{{ formText }} USER</h1>
+    <mat-form-field appearance="fill">
+        <mat-label>Your ID</mat-label>
+        <input matInput type="number" name="idNumber" min="0" max="9999999" ngModel required [(ngModel)]="inputVal.idNumber">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Your Name</mat-label>
+        <input matInput name="name" ngModel required [(ngModel)]="inputVal.name">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Your Age</mat-label>
+        <input matInput type="number" name="age" ngModel min="0" max="200" required [(ngModel)]="inputVal.age">
+    </mat-form-field>
+
+    <div>
+        <label>Your Gender: </label><br>
+        <mat-radio-group name="gender" ngModel required [(ngModel)]="inputVal.gender">
+          <mat-radio-button value="male">Male</mat-radio-button>
+          <mat-radio-button value="female">Female</mat-radio-button>
+        </mat-radio-group>
+    </div>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Your Email</mat-label>
+        <input matInput type="email" name="email" ngModel required [(ngModel)]="inputVal.email">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Your Position</mat-label>
+        <mat-select name="position" ngModel required [(ngModel)]="inputVal.position">
+          <mat-option value="Position One">First Position</mat-option>
+          <mat-option value="Position Two">Second Position</mat-option>
+          <mat-option value="Position Three">Third Position</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Marital Status</mat-label>
+        <mat-select name="marital" ngModel required [(ngModel)]="inputVal.marital">
+          <mat-option value="Married">Married</mat-option>
+          <mat-option value="Single">Single</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="two_colspan">
+        <mat-label>Your Address</mat-label>
+        <input matInput name="address" ngModel required [(ngModel)]="inputVal.addresess.address">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Zip Code</mat-label>
+        <input matInput type="number" name="zipCode" min="0" ngModel required [(ngModel)]="inputVal.addresess.zipCode">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>City</mat-label>
+        <input matInput name="city" ngModel required [(ngModel)]="inputVal.addresess.city">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Country</mat-label>
+        <input matInput name="country" ngModel required [(ngModel)]="inputVal.addresess.country">
+    </mat-form-field>
+
+    <div class="buttons">
+        <button mat-flat-button color="primary" type="submit">Submit</button>
+        <button mat-flat-button type="button" (click)="backToList()">Cancel</button>
+    </div>
+</form>
