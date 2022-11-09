@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../user-service/user.model';
 import { UserService } from '../user-service/user.service';
@@ -13,7 +14,23 @@ export class UserFormComponent implements OnInit {
   inputVal: User = new User;
   formText = "ADD NEW";
 
-  constructor(private router: Router, private userService: UserService, private route: ActivatedRoute) { }
+  form: FormGroup;
+
+  constructor(private router: Router, private userService: UserService, private route: ActivatedRoute, private fb: FormBuilder) {
+    this.form = this.fb.group({
+      idNumber: 0,
+      name: "",
+      age: 0,
+      gender: "male",
+      email: "",
+      position: "",
+      marital: "",
+      address: "",
+      zipCode: 0,
+      city: "",
+      country: ""
+    });
+  }
 
   ngOnInit(): void {
     let uid = this.route.snapshot.queryParams['uid']
@@ -41,27 +58,25 @@ export class UserFormComponent implements OnInit {
     return id;
   }
 
-  onSubmit(item: any){
-    if(item.form.valid){
+  onSubmit(){
+    if(this.form.valid){
       let uid = this.route.snapshot.queryParams['uid']
       if(uid){
         let index = this.searchIndex(parseInt(uid));
         if(index > -1){
-          this.userService.editUser(index, item.form.value);
+          this.userService.editUser(index, this.form.value);
 
           this.router.navigate([""]);
         }
       }else{
-        if(!this.userService.checkId(item.form.value.idNumber)){
+        if(!this.userService.checkId(this.form.value.idNumber)){
           this.router.navigate([""]);
 
-          this.userService.onFormSubmit(item.form.value);
+          this.userService.onFormSubmit(this.form.value);
         }else{
           alert("The ID already Used!!")
         }
       }
-
-      
     }
   }
 
