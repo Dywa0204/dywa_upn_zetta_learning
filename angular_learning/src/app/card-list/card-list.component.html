@@ -1,0 +1,8 @@
+<div class="header">
+    <button mat-raised-button color="primary" (click)="addNewCard()">Add New Card</button>
+    <button mat-raised-button color="accent" (click)="openAllCard()">{{ buttonText }} All Card</button>
+</div>
+<h2>Click the Card to Open It</h2>
+<div class="card-container">
+    <app-card *ngFor="let card of cards" [card]="card" (onCardOpen)="onCardOpen($event)"></app-card>
+</div>

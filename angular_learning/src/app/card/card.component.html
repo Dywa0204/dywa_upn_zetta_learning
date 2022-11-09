@@ -1,0 +1,6 @@
+<mat-card (click)="onCardClick(card.id)">
+    <mat-card-title *ngIf="card.isOpen">{{ card.title }}</mat-card-title>
+    <mat-card-subtitle *ngIf="card.isOpen">{{ card.desc }}</mat-card-subtitle>
+    <mat-card-title *ngIf="!card.isOpen">&nbsp;</mat-card-title>
+    <mat-card-subtitle *ngIf="!card.isOpen">&nbsp;</mat-card-subtitle>
+</mat-card>
