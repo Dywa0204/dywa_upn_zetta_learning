@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from '../user-service/user.model';
 import { UserService } from '../user-service/user.service';
 
 @Component({
@@ -11,25 +10,26 @@ import { UserService } from '../user-service/user.service';
   providers: [UserService]
 })
 export class UserFormComponent implements OnInit {
-  inputVal: User = new User;
   formText = "ADD NEW";
 
-  form: FormGroup;
+  userForm = new FormGroup({
+    idNumber : new FormControl(0, [Validators.required]),
+    name : new FormControl('', [Validators.required]),
+    age : new FormControl(0, [Validators.required]),
+    gender : new FormControl('male', [Validators.required]),
+    email : new FormControl('', [Validators.required, Validators.email]),
+    position : new FormControl('', [Validators.required]),
+    marital : new FormControl('', [Validators.required]),
+    addresses : new FormGroup({
+      address: new FormControl('', [Validators.required]),
+      zipCode: new FormControl(0, [Validators.required]),
+      city: new FormControl('', [Validators.required]),
+      country: new FormControl('', [Validators.required])
+    }, [Validators.required])
+  }, [Validators.required])
 
-  constructor(private router: Router, private userService: UserService, private route: ActivatedRoute, private fb: FormBuilder) {
-    this.form = this.fb.group({
-      idNumber: 0,
-      name: "",
-      age: 0,
-      gender: "male",
-      email: "",
-      position: "",
-      marital: "",
-      address: "",
-      zipCode: 0,
-      city: "",
-      country: ""
-    });
+  constructor(private router: Router, private userService: UserService, private route: ActivatedRoute) {
+    
   }
 
   ngOnInit(): void {
@@ -38,10 +38,8 @@ export class UserFormComponent implements OnInit {
       this.formText = "EDIT"
       let index = this.searchIndex(parseInt(uid));
       if(index > -1){
-        this.inputVal = this.userService.getAllUser()[index];
+        this.userForm.setValue(this.userService.getUser(index));
       }
-    }else{
-
     }
   }
 
@@ -59,24 +57,29 @@ export class UserFormComponent implements OnInit {
   }
 
   onSubmit(){
-    if(this.form.valid){
-      let uid = this.route.snapshot.queryParams['uid']
+    if(this.userForm.valid){
+      let uid = this.route.snapshot.queryParams['uid'] //Get UID From routing parameter
+
+      //EDIT
       if(uid){
         let index = this.searchIndex(parseInt(uid));
         if(index > -1){
-          this.userService.editUser(index, this.form.value);
-
+          this.userService.editUser(index, this.userForm.value);
           this.router.navigate([""]);
         }
-      }else{
-        if(!this.userService.checkId(this.form.value.idNumber)){
+      }
+      
+      //ADD
+      else{
+        if(!this.userService.checkId(this.userForm.value.idNumber!)){
+          this.userService.addUser(this.userForm.value);
           this.router.navigate([""]);
-
-          this.userService.onFormSubmit(this.form.value);
         }else{
           alert("The ID already Used!!")
         }
       }
+    } else {
+      alert("Form Not Valid!!")
     }
   }
 

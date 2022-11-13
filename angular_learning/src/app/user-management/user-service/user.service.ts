@@ -1,11 +1,38 @@
 import { Injectable } from '@angular/core';
-import { User, Users } from './user.model';
+import { sample, User } from './user.model';
 
 @Injectable()
 export class UserService {
-    user = Users;
+    user = sample;
 
-    onFormSubmit(values: any){
+    getAllUser(){
+        return this.user;
+    }
+
+    getUser(index: number){
+        return this.user[index];
+    }
+
+    checkId(id: number){
+        let found = false;
+        for(let i = 0; i < this.user.length; i++){
+            if(this.user[i].idNumber == id){
+                found = true;
+                break;
+            }
+        }
+        return found
+    }
+
+    addUser(values: any){
+        this.user.push(values);
+    }
+
+    editUser(index: number, values: any){
+        this.user[index] = values;
+    }
+
+    /* onFormSubmit(values: any){
         this.user.push({
             idNumber: values.idNumber,
             name: values.name,
@@ -21,21 +48,13 @@ export class UserService {
                 country: values.country
             }
         })
-    }
+    } */
 
-    getAllUser(){
-        return this.user;
-    }
+    
 
-    checkId(id: number){
-        let found = false;
-        this.user.forEach(item => {
-            found = item.idNumber === id ? true : false;
-        })
-        return found
-    }
+    
 
-    editUser(index: number, values: any){
+    /* editUser(index: number, values: any){
         this.user[index].idNumber = values.idNumber,
         this.user[index].name = values.name,
         this.user[index].age = values.age,
@@ -47,5 +66,5 @@ export class UserService {
         this.user[index].addresess.zipCode = values.zipCode,
         this.user[index].addresess.city = values.city,
         this.user[index].addresess.country = values.country
-    }
+    } */
 } 

@@ -11,19 +11,19 @@ import { User } from '../user-service/user.model';
 })
 export class UserListComponent implements OnInit {
 
-  users : User[] = [];
+  usersList : User[] = [];
 
   isUserSelected = false;
-  selecteduser : User = new User;
+  selectedUser : User = new User;
 
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.users = this.userService.getAllUser()
+    this.usersList = this.userService.getAllUser()
   }
 
   userSelected(user: User){
     this.isUserSelected = true
-    this.selecteduser = user;
+    this.selectedUser = user;
   }
 }

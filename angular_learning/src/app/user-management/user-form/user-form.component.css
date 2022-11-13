@@ -11,8 +11,7 @@ form{
     margin: 32px 128px;
     padding: 32px;
     border-radius: 8px;
-    column-gap: 12px;
-    row-gap: 12px;
+    gap: 12px;
 }
 
 mat-radio-group{
@@ -34,6 +33,17 @@ mat-radio-group{
 
 .two_colspan{
     grid-column: 2 / 4;
+}
+
+.addresses{
+    grid-column: 1 / 4;
+    
+}
+
+.addressesForm{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
 }
 
 @media screen and (max-width: 992px) {

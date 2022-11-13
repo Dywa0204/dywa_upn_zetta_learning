@@ -1,37 +1,37 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
     <h1>{{ formText }} USER</h1>
 
     <mat-form-field appearance="fill">
         <mat-label>Your ID</mat-label>
-        <input matInput type="number" formControlName="idNumber" min="0" max="9999999" required [(ngModel)]="inputVal.idNumber">
+        <input matInput type="number" formControlName="idNumber" min="0" max="9999999" required>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
         <mat-label>Your Name</mat-label>
-        <input matInput formControlName="name" required [(ngModel)]="inputVal.name">
+        <input matInput formControlName="name" required>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
         <mat-label>Your Age</mat-label>
-        <input matInput type="number" formControlName="age" min="0" max="200" required [(ngModel)]="inputVal.age">
+        <input matInput type="number" formControlName="age" min="0" max="200" required>
     </mat-form-field>
 
     <div>
         <label>Your Gender: </label><br>
-        <mat-radio-group formControlName="gender" required [(ngModel)]="inputVal.gender">
-          <mat-radio-button value="male">Male</mat-radio-button>
-          <mat-radio-button value="female">Female</mat-radio-button>
+        <mat-radio-group formControlName="gender" required>
+          <mat-radio-button value="Male">Male</mat-radio-button>
+          <mat-radio-button value="Female">Female</mat-radio-button>
         </mat-radio-group>
     </div>
 
     <mat-form-field appearance="fill">
         <mat-label>Your Email</mat-label>
-        <input matInput type="email" formControlName="email" required [(ngModel)]="inputVal.email">
+        <input matInput type="email" formControlName="email" required>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
         <mat-label>Your Position</mat-label>
-        <mat-select formControlName="position" required [(ngModel)]="inputVal.position">
+        <mat-select formControlName="position" required>
           <mat-option value="Position One">First Position</mat-option>
           <mat-option value="Position Two">Second Position</mat-option>
           <mat-option value="Position Three">Third Position</mat-option>
@@ -40,31 +40,37 @@
 
     <mat-form-field appearance="fill">
         <mat-label>Marital Status</mat-label>
-        <mat-select formControlName="marital" required [(ngModel)]="inputVal.marital">
+        <mat-select formControlName="marital" required>
           <mat-option value="Married">Married</mat-option>
           <mat-option value="Single">Single</mat-option>
         </mat-select>
     </mat-form-field>
 
-    <mat-form-field appearance="fill" class="two_colspan">
-        <mat-label>Your Address</mat-label>
-        <input matInput formControlName="address" required [(ngModel)]="inputVal.addresess.address">
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-        <mat-label>Zip Code</mat-label>
-        <input matInput type="number" formControlName="zipCode" min="0" required [(ngModel)]="inputVal.addresess.zipCode">
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-        <mat-label>City</mat-label>
-        <input matInput formControlName="city" required [(ngModel)]="inputVal.addresess.city">
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-        <mat-label>Country</mat-label>
-        <input matInput formControlName="country" required [(ngModel)]="inputVal.addresess.country">
-    </mat-form-field>
+    <div formGroupName="addresses" class="addresses">
+        <hr>
+        <h3>ADDRESSES</h3>
+        <div class="addressesForm">
+            <mat-form-field appearance="fill">
+                <mat-label>Your Address</mat-label>
+                <input matInput formControlName="address" required>
+            </mat-form-field>
+        
+            <mat-form-field appearance="fill">
+                <mat-label>Zip Code</mat-label>
+                <input matInput type="number" formControlName="zipCode" min="0" required>
+            </mat-form-field>
+        
+            <mat-form-field appearance="fill">
+                <mat-label>City</mat-label>
+                <input matInput formControlName="city" required >
+            </mat-form-field>
+        
+            <mat-form-field appearance="fill">
+                <mat-label>Country</mat-label>
+                <input matInput formControlName="country" required>
+            </mat-form-field>
+        </div>
+    </div>
 
 
     <div class="buttons">

@@ -6,14 +6,14 @@ type Addresess = {
 }
 
 export class User {
-    idNumber: number = 0;
+    idNumber: number | null = 0;
     name: string = "";
     age: number = 0;
     gender: string = "male";
     email: string = "";
     position: string = "";
     marital: string = "";
-    addresess: Addresess = {
+    addresses: Addresess = {
         address: "",
         zipCode: 0,
         city: "",
@@ -21,34 +21,34 @@ export class User {
     }
 }
 
-export let Users = [
+export let sample = [
     {
-        idNumber: 123456,
-        name: "Joko Widodo wkwkwkwk",
-        age: 67,
-        gender: "male",
-        email: "jokowi@hehehe.com",
+        idNumber: 182622,
+        name: "Bobby M Crume",
+        age: 60,
+        gender: "Male",
+        email: "janiya1996@gmail.com",
         position: "Position One",
         marital: "Married",
-        addresess: {
-            address: "Kono Kae Lah",
-            zipCode: 13422,
-            city: "Solo",
-            country: "Indonesia"
+        addresses: {
+            address: "2803 Green Gate Lane",
+            zipCode: 20707,
+            city: "Laurel, Maryland(MD)",
+            country: "US (United States)"
         }
     },{
-        idNumber: 1234567,
-        name: "Jokowi",
-        age: 67,
-        gender: "male",
-        email: "jokowi@hehehe.com",
-        position: "Position One",
+        idNumber: 746588,
+        name: "Queen P Cline",
+        age: 57,
+        gender: "Male",
+        email: "kiel_orti1@hotmail.com",
+        position: "Position Two",
         marital: "Single",
-        addresess: {
-            address: "Kono Kae Lah",
-            zipCode: 13422,
-            city: "Solo",
-            country: "Indonesia"
+        addresses: {
+            address: "1167 Straford Park",
+            zipCode: 40507,
+            city: "Lexington, Kentucky(KY)",
+            country: "US (United States)"
         }
     }
 ]
