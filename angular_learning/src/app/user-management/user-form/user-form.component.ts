@@ -16,7 +16,7 @@ export class UserFormComponent implements OnInit {
     idNumber : new FormControl(0, [Validators.required]),
     name : new FormControl('', [Validators.required]),
     age : new FormControl(0, [Validators.required]),
-    gender : new FormControl('male', [Validators.required]),
+    gender : new FormControl('Male', [Validators.required]),
     email : new FormControl('', [Validators.required, Validators.email]),
     position : new FormControl('', [Validators.required]),
     marital : new FormControl('', [Validators.required]),
