@@ -4,6 +4,10 @@ h1{
     grid-column: 1 / 4;
 }
 
+h4, h3{
+    margin: 0;
+}
+
 form{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -44,6 +48,15 @@ mat-radio-group{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
+    border-bottom: 1px solid lightgrey;
+    margin-top: 12px;
+}
+
+.addresses-header{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 6px;
+    align-items: center;
 }
 
 @media screen and (max-width: 992px) {

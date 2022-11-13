@@ -35,7 +35,11 @@
                     <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="place"></mat-icon>
                 </td>
                 <td colspan="3">
-                    {{ user.addresses.address }}, {{ user.addresses.city }}, {{ user.addresses.country }}. {{ user.addresses.zipCode }}
+                    <ul>
+                        <li *ngFor="let address of user.addresses">
+                            {{ address.address }}, {{ address.city }}, {{ address.country }}. {{ address.zipCode }}
+                        </li>
+                    </ul>
                 </td>
             </tr>
         </table>

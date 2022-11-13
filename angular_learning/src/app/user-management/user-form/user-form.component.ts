@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../user-service/user.service';
 
@@ -16,17 +16,19 @@ export class UserFormComponent implements OnInit {
     idNumber : new FormControl(0, [Validators.required]),
     name : new FormControl('', [Validators.required]),
     age : new FormControl(0, [Validators.required]),
-    gender : new FormControl('male', [Validators.required]),
+    gender : new FormControl('Male', [Validators.required]),
     email : new FormControl('', [Validators.required, Validators.email]),
     position : new FormControl('', [Validators.required]),
     marital : new FormControl('', [Validators.required]),
-    addresses : new FormGroup({
-      address: new FormControl('', [Validators.required]),
-      zipCode: new FormControl(0, [Validators.required]),
-      city: new FormControl('', [Validators.required]),
-      country: new FormControl('', [Validators.required])
-    }, [Validators.required])
-  }, [Validators.required])
+    addresses : new FormArray([
+      new FormGroup({
+        address: new FormControl('', [Validators.required]),
+        zipCode: new FormControl(0, [Validators.required]),
+        city: new FormControl('', [Validators.required]),
+        country: new FormControl('', [Validators.required])
+      })
+    ])
+  })
 
   constructor(private router: Router, private userService: UserService, private route: ActivatedRoute) {
     
@@ -38,7 +40,11 @@ export class UserFormComponent implements OnInit {
       this.formText = "EDIT"
       let index = this.searchIndex(parseInt(uid));
       if(index > -1){
-        this.userForm.setValue(this.userService.getUser(index));
+        let user = this.userService.getUser(index);
+        for(let i = 0; i < user.addresses.length - 1; i++){
+          this.addNewAddress();
+        }
+        this.userForm.setValue(user);
       }
     }
   }
@@ -83,7 +89,23 @@ export class UserFormComponent implements OnInit {
     }
   }
 
+  addNewAddress(){
+    let addresses = this.userForm.get('addresses') as FormArray;
+    addresses.push(
+      new FormGroup({
+        address: new FormControl('', [Validators.required]),
+        zipCode: new FormControl(0, [Validators.required]),
+        city: new FormControl('', [Validators.required]),
+        country: new FormControl('', [Validators.required])
+      })
+    )
+  }
+
   backToList(){
     this.router.navigate([""])
+  }
+
+  trackByFn(index: any) {
+    return index;
   }
 }

@@ -6,19 +6,21 @@ type Addresess = {
 }
 
 export class User {
-    idNumber: number | null = 0;
+    idNumber: number = 0;
     name: string = "";
     age: number = 0;
     gender: string = "male";
     email: string = "";
     position: string = "";
     marital: string = "";
-    addresses: Addresess = {
-        address: "",
-        zipCode: 0,
-        city: "",
-        country: ""
-    }
+    addresses: Addresess[] = [
+        {
+            address: "",
+            zipCode: 0,
+            city: "",
+            country: ""
+        }
+    ]
 }
 
 export let sample = [
@@ -30,12 +32,19 @@ export let sample = [
         email: "janiya1996@gmail.com",
         position: "Position One",
         marital: "Married",
-        addresses: {
-            address: "2803 Green Gate Lane",
-            zipCode: 20707,
-            city: "Laurel, Maryland(MD)",
-            country: "US (United States)"
-        }
+        addresses: [
+            {
+                address: "2803 Green Gate Lane",
+                zipCode: 20707,
+                city: "Laurel, Maryland(MD)",
+                country: "US (United States)"
+            },{
+                address: "1569 Crim Lane",
+                zipCode: 45459,
+                city: "Dayton, Ohio(OH)",
+                country: "US (United States)"
+            }
+        ]
     },{
         idNumber: 746588,
         name: "Queen P Cline",
@@ -44,11 +53,13 @@ export let sample = [
         email: "kiel_orti1@hotmail.com",
         position: "Position Two",
         marital: "Single",
-        addresses: {
-            address: "1167 Straford Park",
-            zipCode: 40507,
-            city: "Lexington, Kentucky(KY)",
-            country: "US (United States)"
-        }
+        addresses: [
+            {
+                address: "1167 Straford Park",
+                zipCode: 40507,
+                city: "Lexington, Kentucky(KY)",
+                country: "US (United States)"
+            }
+        ]
     }
 ]

@@ -16,6 +16,15 @@ td{
     vertical-align: top;
 }
 
+ul{
+    margin: 0;
+    padding: 0 16px;
+}
+
+li{
+    margin-bottom: 8px;
+}
+
 .user-detail{
     display: flex;
     flex-direction: column;
