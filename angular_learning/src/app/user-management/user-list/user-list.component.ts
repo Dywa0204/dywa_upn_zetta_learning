@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user-service/user.service';
 
 import { User } from '../user-service/user.model';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user-list',
@@ -19,11 +20,17 @@ export class UserListComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.usersList = this.userService.getAllUser()
+    this.usersList = this.userService.getAllUser();
   }
 
   userSelected(user: User){
     this.isUserSelected = true
     this.selectedUser = user;
   }
+
+  searchUser(keyword: any){
+    this.usersList = this.userService.searchUser(keyword.target.value)
+  }
+
+  
 }

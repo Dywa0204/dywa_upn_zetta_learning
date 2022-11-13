@@ -1,9 +1,18 @@
 <h1>USER MANAGEMENT</h1>
 <div class="container">
-    <mat-selection-list [multiple]="false">
-        <a mat-flat-button color="primary" routerLink="/form">Add New User</a>
-        <mat-list-option *ngFor="let user of usersList" (click)="userSelected(user)">{{ user.name }}</mat-list-option>
-    </mat-selection-list>
+    <div class="user-list">
+        <div class="user-list-header">
+            <a mat-flat-button color="primary" routerLink="/form">Add New User</a>
+            <input type="text" placeholder="Search..." (input)="searchUser($event)">
+        </div>
+        <mat-selection-list [multiple]="false">
+            <mat-list-option *ngFor="let user of usersList" (click)="userSelected(user)">
+                <mat-icon mat-list-icon>person</mat-icon>
+                <h3>{{ user.name }}</h3>
+                <small style="font-size: 0.8em;">{{ user.name | removeaccent }}</small>
+            </mat-list-option>
+        </mat-selection-list>
+    </div>
     <div class="user-detail">
         <app-user-detail *ngIf="isUserSelected" [user]="selectedUser"></app-user-detail>
         <h2 *ngIf="!isUserSelected">Select user to display user detail</h2>

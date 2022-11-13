@@ -26,7 +26,7 @@ export class User {
 export let sample = [
     {
         idNumber: 182622,
-        name: "Bobby M Crume",
+        name: "Crème Fraîche",
         age: 60,
         gender: "Male",
         email: "janiya1996@gmail.com",

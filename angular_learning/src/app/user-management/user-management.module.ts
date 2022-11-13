@@ -15,6 +15,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RemoveAccentPipe } from './user-pipes/user.pipes';
 
 export const appRoutes : Routes = [
   { path: "", component: UserListComponent },
@@ -25,7 +26,8 @@ export const appRoutes : Routes = [
   declarations: [
     UserListComponent,
     UserFormComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    RemoveAccentPipe
   ],
   imports: [
     CommonModule,

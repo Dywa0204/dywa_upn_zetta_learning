@@ -2,7 +2,7 @@
     <div class="user-detail-info">
         <p>Id Number : {{ user.idNumber }}</p>
         <hr><br>
-        <h1>{{ user.name }}</h1>
+        <h1>{{ user.name | uppercase | removeaccent }}</h1>
         <h2 class="age">{{ user.age }} years old</h2>
 
         <table>
@@ -21,7 +21,7 @@
                 <td>
                     <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="email"></mat-icon>
                 </td>
-                <td>{{ user.email }}</td>
+                <td>{{ user.email | lowercase }}</td>
                 <td>
                     <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="favorite"></mat-icon>
                 </td>
