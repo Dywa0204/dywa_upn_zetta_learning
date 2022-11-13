@@ -111,14 +111,7 @@ export class UserFormComponent implements OnInit {
 
   addNewAddress(){
     let addresses = this.userForm.get('addresses') as FormArray;
-    addresses.push(
-      new FormGroup({
-        address: new FormControl('', [Validators.required]),
-        zipCode: new FormControl(0, [Validators.required]),
-        city: new FormControl('', [Validators.required]),
-        country: new FormControl('', [Validators.required])
-      })
-    )
+    addresses.push(this.userFormAddresses)
   }
 
   backToList(){
