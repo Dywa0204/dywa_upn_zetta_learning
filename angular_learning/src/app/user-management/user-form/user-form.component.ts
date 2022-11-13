@@ -3,6 +3,8 @@ import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../user-service/user.service';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-user-form',
   templateUrl: './user-form.component.html',
@@ -12,8 +14,15 @@ import { UserService } from '../user-service/user.service';
 export class UserFormComponent implements OnInit {
   formText = "ADD NEW";
 
+  userFormAddresses = new FormGroup({
+    address: new FormControl('', [Validators.required]),
+    zipCode: new FormControl(0, [Validators.required]),
+    city: new FormControl('', [Validators.required]),
+    country: new FormControl('', [Validators.required])
+  })
+
   userForm = new FormGroup({
-    idNumber : new FormControl(0, [Validators.required]),
+    idNumber : new FormControl(0, [Validators.required, Validators.min(0)]),
     name : new FormControl('', [Validators.required]),
     age : new FormControl(0, [Validators.required]),
     gender : new FormControl('Male', [Validators.required]),
@@ -21,12 +30,7 @@ export class UserFormComponent implements OnInit {
     position : new FormControl('', [Validators.required]),
     marital : new FormControl('', [Validators.required]),
     addresses : new FormArray([
-      new FormGroup({
-        address: new FormControl('', [Validators.required]),
-        zipCode: new FormControl(0, [Validators.required]),
-        city: new FormControl('', [Validators.required]),
-        country: new FormControl('', [Validators.required])
-      })
+      this.userFormAddresses
     ])
   })
 
@@ -71,7 +75,12 @@ export class UserFormComponent implements OnInit {
         let index = this.searchIndex(parseInt(uid));
         if(index > -1){
           this.userService.editUser(index, this.userForm.value);
-          this.router.navigate([""]);
+          Swal.fire({
+            icon: 'success',
+            title: 'Data Saved'
+          }).then(() => {
+            this.router.navigate([""]);
+          })
         }
       }
       
@@ -79,13 +88,24 @@ export class UserFormComponent implements OnInit {
       else{
         if(!this.userService.checkId(this.userForm.value.idNumber!)){
           this.userService.addUser(this.userForm.value);
-          this.router.navigate([""]);
+          Swal.fire({
+            icon: 'success',
+            title: 'Data Saved'
+          }).then(() => {
+            this.router.navigate([""]);
+          })
         }else{
-          alert("The ID already Used!!")
+          Swal.fire({
+            icon: 'error',
+            title: 'The ID already Used!!'
+          })
         }
       }
     } else {
-      alert("Form Not Valid!!")
+      Swal.fire({
+        icon: 'error',
+        title: 'Form Not Valid!!'
+      })
     }
   }
 
