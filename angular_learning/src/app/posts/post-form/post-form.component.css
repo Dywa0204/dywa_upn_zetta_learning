@@ -1,0 +1,24 @@
+h1{
+    color: white;
+    text-align: center;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    margin: 0 64px 32px;
+}
+
+mat-card{
+    margin: 32px 128px;
+}
+
+*{
+    color: white;
+}
+
+.buttons{
+    margin-top: 12px;
+    display: flex;
+    gap: 16px;
+}

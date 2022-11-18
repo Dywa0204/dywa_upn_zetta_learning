@@ -1,0 +1,21 @@
+<div class="post-list-header">
+    <h1>POSTS LIST</h1>
+    <a mat-flat-button color="primary" routerLink="/form">ADD NEW POST</a>
+</div>
+<div class="post-list">
+    <mat-card *ngFor="let post of posts.slice().reverse()">
+        <mat-card-subtitle>
+            <span>uid : {{ post.userId }}</span>
+            <span>id : {{ post.id }}</span>
+        </mat-card-subtitle>
+        <mat-card-title>{{ post.title }}</mat-card-title>
+        <mat-card-content>{{ post.body }}</mat-card-content>
+        <mat-card-actions>
+            <a mat-flat-button color="accent" routerLink="/form" [queryParams]="{id: post.id}">Edit</a>
+            <button mat-flat-button color="warn" (click)="onDeletePost(post.id)">Delete</button>
+        </mat-card-actions>
+        <mat-card-footer>
+            <mat-progress-bar *ngIf="post.isLoading" mode="indeterminate"></mat-progress-bar>
+        </mat-card-footer>
+    </mat-card>
+</div>

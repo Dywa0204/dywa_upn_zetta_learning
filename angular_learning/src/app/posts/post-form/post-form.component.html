@@ -1,0 +1,32 @@
+<mat-card>
+    <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+        <h1>{{ formText }} POST</h1>
+    
+        <mat-form-field appearance="fill">
+            <mat-label>User Id</mat-label>
+            <input matInput type="number" formControlName="userId" min="0" max="9999999" required>
+            <mat-error *ngIf="postForm.controls.userId.errors?.['min']">Minimum uid is 0</mat-error>
+            <mat-error *ngIf="postForm.controls.userId.errors?.['required']">This field cannot be empty</mat-error>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+            <mat-label>Post Title</mat-label>
+            <input matInput formControlName="title" required>
+            <mat-error *ngIf="postForm.controls.title.errors?.['required']">This field cannot be empty</mat-error>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+            <mat-label>Post Body</mat-label>
+            <input matInput formControlName="body" required>
+            <mat-error *ngIf="postForm.controls.body.errors?.['required']">This field cannot be empty</mat-error>
+        </mat-form-field>
+    
+        <div class="buttons">
+            <button mat-flat-button color="primary" type="submit">Submit</button>
+            <button mat-flat-button type="button" (click)="backToList()">Cancel</button>
+        </div>
+    </form>
+    <mat-card-footer>
+        <mat-progress-bar *ngIf="onProses" mode="indeterminate"></mat-progress-bar>
+    </mat-card-footer>
+</mat-card>
