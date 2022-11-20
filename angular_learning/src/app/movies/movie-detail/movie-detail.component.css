@@ -1,0 +1,49 @@
+mat-card{
+    margin: 32px 128px;
+}
+
+.movie-detail{
+    padding: 32px;
+    display: grid;
+    grid-template-columns: .2fr .8fr;
+    gap: 32px;
+}
+
+.movie-image img{
+    width: 100%;
+    border-radius: 8px;
+}
+
+h1{
+    margin: 0;
+}
+
+mat-card span{
+    background-color: #ffb300;
+    padding: 4px 8px;
+    border-radius: 6px;
+    color: black;
+    margin-right: 8px;
+}
+
+td{
+    vertical-align: top;
+}
+
+.genre-container{
+    display: flex;
+}
+
+.genre, .actor{
+    padding: 4px 8px;
+    background-color: #ffffff1e;
+    border-radius: 4px;
+    margin-right: 6px;
+}
+
+.actors{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 32px;
+}

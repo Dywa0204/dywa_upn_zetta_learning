@@ -1,29 +1,27 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieService } from '../service/movie.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'],
-  providers: [MovieService]
+  styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  movies = [
-    {
-      title: '',
-      director: '',
-      writer: '',
-      desc: '',
-      genre: [''],
-      img: '',
-      actors: ['']
-    }
-  ]
+  menu = [true, false, false];
 
-  constructor(private movieSercvice: MovieService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.movies = this.movieSercvice.getMovies();
+    
   }
 
+  openMenu(val: string){
+    switch(val){
+      case 'movie':
+        this.menu = [true, false, false];
+        break;
+      case 'actor':
+        this.menu = [false, true, false];
+        break;
+    }
+  }
 }

@@ -1,0 +1,53 @@
+mat-card span{
+    background-color: #ffb300;
+    padding: 4px 8px;
+    border-radius: 6px;
+    color: black;
+    margin-right: 8px;
+}
+
+mat-card{
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+mat-card a{
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: white;
+}
+
+mat-card:hover{
+    transform: scale(1.02);
+}
+
+mat-card img{
+    margin: 0;
+}
+
+mat-card-content{
+    position: absolute;
+    bottom: 0;
+    padding: 1.3em 1em;
+    margin-bottom: 0;
+}
+
+.card-img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-shadow{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-image: linear-gradient(0, black, transparent);
+}

@@ -1,0 +1,17 @@
+mat-card-title{
+    text-align: center;
+}
+
+mat-card{
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+mat-card:hover{
+    transform: scale(1.02);
+}

@@ -1,1 +1,13 @@
-<p>movie-list works!</p>
+<mat-card class="example-card" *ngFor="let movie of movies">
+    <a routerLink="movie" [queryParams]="{title: getSlugURL(movie.title)}">
+        <div class="card-img">
+            <div class="img-shadow"></div>
+            <img mat-card-image [src]="movie.img">
+        </div>
+        <mat-card-content>
+            <h3>{{ movie.title }}</h3>
+            <span>{{ movie.rating }}</span>
+            {{ movie.year }}
+        </mat-card-content>
+    </a>
+</mat-card>

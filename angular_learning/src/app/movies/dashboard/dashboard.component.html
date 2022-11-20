@@ -9,47 +9,14 @@
     <mat-drawer-container class="example-container" autosize>
         <mat-drawer #drawer class="example-sidenav" mode="side">
             <mat-selection-list #sidenav [multiple]="false">
-                <mat-list-option value="movie">Movie List</mat-list-option>
-                <mat-list-option value="movie">Actor List</mat-list-option>
-                <mat-list-option value="movie">About</mat-list-option>
+                <mat-list-option (click)="openMenu('movie')">Movie List</mat-list-option>
+                <mat-list-option (click)="openMenu('actor')">Actor List</mat-list-option>
+                <mat-list-option value="about">About</mat-list-option>
             </mat-selection-list>
         </mat-drawer>
         <div class="movie-list">
-            <mat-card class="example-card" *ngFor="let movie of movies">
-                <div class="card-img">
-                    <img mat-card-image [src]="movie.img">
-                </div>
-                <div class="card-info">
-                    <mat-card-title>{{ movie.title }}</mat-card-title>
-                    <mat-card-subtitle>
-                        <span *ngFor="let genre of movie.genre">{{ genre }}</span>
-                    </mat-card-subtitle>
-                    <mat-card-content>
-                        <p>{{ movie.desc }}</p>
-                        <table>
-                            <tr>
-                                <td width="20%">Director</td>
-                                <td width="1px">:</td>
-                                <td>{{ movie.director }}</td>
-                            </tr>
-                            <tr>
-                                <td>Writer</td>
-                                <td>:</td>
-                                <td>{{ movie.writer }}</td>
-                            </tr>
-                            <tr>
-                                <td>Stars</td>
-                                <td>:</td>
-                                <td>
-                                    <ul>
-                                        <li *ngFor="let actor of movie.actors;">{{ actor }}</li>
-                                    </ul>
-                                </td>
-                            </tr>
-                        </table>
-                    </mat-card-content>
-                </div>
-            </mat-card>
+            <app-movie-list *ngIf="menu[0]"></app-movie-list>
+            <app-actor-list *ngIf="menu[1]"></app-actor-list>
         </div>
     </mat-drawer-container>
 </div>
