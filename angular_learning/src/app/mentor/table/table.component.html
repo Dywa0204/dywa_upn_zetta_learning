@@ -1,0 +1,51 @@
+<mat-card>
+    <div class="filter">
+        <mat-form-field appearance="fill">
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event, 'input')" #input>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+            <mat-label>User Status</mat-label>
+            <mat-select (valueChange)="applyFilter($event, 'select')">
+                <mat-option value="">All</mat-option>
+                <mat-option value="active">Active</mat-option>
+                <mat-option value="pending">Pending</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+      
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element"> {{ element.civility }}. {{ element.first_name }} {{ element.last_name }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="user_type">
+          <th mat-header-cell *matHeaderCellDef> User Type </th>
+          <td mat-cell *matCellDef="let element"> {{ element.company.user_type }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let element"> {{ element.email }} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let element">
+            <div [className]="element.user_status">
+                <mat-icon aria-hidden="false" aria-label="Example icon" [fontIcon]="element.user_status == 'active' ? 'check' : 'close'"></mat-icon>
+            </div>
+          </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+    </table>
+</mat-card>

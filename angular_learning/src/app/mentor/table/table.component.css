@@ -1,0 +1,23 @@
+table{
+    width: 100%;
+}
+
+mat-card{
+    margin: 32px 128px;
+    padding: 32px;
+}
+
+.filter{
+    width: 100%;
+    display: grid;
+    grid-template-columns: .7fr .3fr;
+    gap: 16px;
+}
+
+.pending mat-icon{
+    color: red;
+}
+
+.active mat-icon{
+    color: green;
+}
