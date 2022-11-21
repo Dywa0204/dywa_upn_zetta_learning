@@ -7,6 +7,9 @@ import { MatTableModule } from '@angular/material/table'
 import { MatCardModule } from '@angular/material/card'
 import { MatSelectModule } from '@angular/material/select'
 import { MatIconModule } from '@angular/material/icon'
+import { MatButtonModule } from '@angular/material/button'
+import { MatDatepickerModule } from '@angular/material/datepicker'
+import { MatRadioModule } from '@angular/material/radio'
 
 @NgModule({
   declarations: [],
@@ -19,7 +22,10 @@ import { MatIconModule } from '@angular/material/icon'
     MatInputModule,
     MatCardModule,
     MatSelectModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule,
+    MatDatepickerModule,
+    MatRadioModule
   ]
 })
 export class SharedModule { }

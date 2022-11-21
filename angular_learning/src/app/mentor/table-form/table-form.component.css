@@ -1,0 +1,22 @@
+mat-card{
+    margin: 32px 128px;
+    padding: 32px;
+}
+
+h1{
+    text-align: center;
+}
+
+.input_name, .input_other, .buttons{
+    display: grid;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.input_name, .buttons{
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.input_other{
+    grid-template-columns: repeat(3, 1fr);
+}

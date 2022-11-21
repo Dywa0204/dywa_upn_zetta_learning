@@ -1,0 +1,58 @@
+<mat-card>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <h1>ADD NEW USER</h1>
+
+        <mat-radio-group aria-label="Select an option" required formControlName="civility">
+            <mat-radio-button value="mr">MR</mat-radio-button>&nbsp;&nbsp;
+            <mat-radio-button value="mrs">MRS</mat-radio-button>
+        </mat-radio-group>
+
+        <div class="input_name">
+            <mat-form-field appearance="fill">
+                <mat-label>First Name</mat-label>
+                <input matInput formControlName="first_name" required>
+                <mat-error *ngIf="userForm.controls['first_name'].errors">This field cannot be empty</mat-error>
+            </mat-form-field>
+    
+            <mat-form-field appearance="fill">
+                <mat-label>Last Name</mat-label>
+                <input matInput formControlName="last_name" required>
+                <mat-error *ngIf="userForm.controls['last_name'].errors">This field cannot be empty</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="input_other">
+            <mat-form-field appearance="fill">
+                <mat-label>Date of Birth</mat-label>
+                <input matInput [matDatepicker]="picker" required formControlName="date">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="userForm.controls['date'].errors">This field cannot be empty</mat-error>
+            </mat-form-field>
+    
+            <mat-form-field appearance="fill">
+                <mat-label>Gender</mat-label>
+                <mat-select formControlName="gender" required>
+                  <mat-option value="male">Male</mat-option>
+                  <mat-option value="female">Female</mat-option>
+                </mat-select>
+                <mat-error *ngIf="userForm.controls['gender'].errors">This field cannot be empty</mat-error>
+            </mat-form-field>
+    
+            <mat-form-field appearance="fill">
+                <mat-label>Status</mat-label>
+                <mat-select formControlName="user_status" required>
+                  <mat-option value="active">Male</mat-option>
+                  <mat-option value="pending">Pending</mat-option>
+                </mat-select>
+                <mat-error *ngIf="userForm.controls['user_status'].errors">This field cannot be empty</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="buttons">
+            <button mat-flat-button color="primary" type="submit">Submit</button>
+            <button mat-flat-button type="button" (click)="backToList()">Cancel</button>
+        </div>
+    </form>
+</mat-card>

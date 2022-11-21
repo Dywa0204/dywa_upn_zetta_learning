@@ -41,6 +41,14 @@ export class TableComponent implements OnInit {
         break;
     }
   }
+
+  addNewUser(){
+    this.mentorService.addData().subscribe(data => {
+      const d = this.dataSource.data;
+      d.push(data);
+      this.dataSource.data = d;
+    })
+  }
 }
 
 
